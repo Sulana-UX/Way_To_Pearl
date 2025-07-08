@@ -1,0 +1,167 @@
+/* Footer container */
+.footer-container {
+  background-color: #f7f7f7;
+  color: #333;
+  font-family: Arial, sans-serif;
+  padding: 40px 20px 20px;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* Footer top section */
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto 30px;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 20px;
+  padding: 0 15px;
+}
+
+.footer-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #666;
+  cursor: pointer;
+}
+
+.footer-links li:hover {
+  color: #00aa6c;
+}
+
+/* Footer bottom section */
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.footer-copyright {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.footer-legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.footer-legal-links span {
+  font-size: 12px;
+  color: #666;
+  margin-right: 15px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.footer-legal-links span:hover {
+  color:#00aa6c;
+}
+
+.footer-disclaimer {
+  font-size: 11px;
+  color: #999;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.read-more {
+  color: #00aa6c;
+  cursor: pointer;
+}
+
+.footer-language {
+  font-size: 12px;
+  color: #666;
+}
+
+.footer-language span {
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.footer-language span:hover {
+  color: #00aa6c;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer-column {
+    min-width: 150px;
+  }
+  
+  .footer-legal-links span {
+    margin-right: 10px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-column {
+    min-width: 100%;
+    margin-bottom: 25px;
+  }
+}
+
+.legal-disclaimer {
+  position: relative;
+  font-size: 12px;
+  color: #666;
+  line-height: 1.5;
+  padding: 15px 0;
+  border-top: 1px solid #eee;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.more-button {
+  background: none;
+  border: none;
+  color: #0066cc;
+  cursor: pointer;
+  padding: 0 4px;
+  font-size: 12px;
+  text-decoration: none;
+  display: inline;
+}
+
+.more-button:hover {
+  text-decoration: underline;
+}
+
+.ellipsis {
+  margin-right: 4px;
+}
+
+.expanded-text {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed #ddd;
+}
+
+/* For the "Less" button positioning */
+.expanded-text .more-button {
+  display: block;
+  margin-top: 8px;
+}
