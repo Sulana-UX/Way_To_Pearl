@@ -1,15 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import './thingstodo.css'; 
 
 export default function ThingsToDo() {
+  const [activities, setActivities] = useState([]);
+
+  useEffect(() => {
+    fetch('/api/activities')
+      .then((res) => res.json())
+      .then((data) => setActivities(data))
+      .catch((err) => console.error('Failed to fetch activities:', err));
+  }, []);
+
   return (
     <>
-      <div
+    <div className="thingstodo-page">
+        <div
         className="hero-banner"
         style={{ backgroundImage: "url('/images/hero.jpg')", minHeight: '400px', backgroundSize: 'cover', backgroundPosition: 'center' }}
       >
         <div className="hero-content">
-          <h1 className="hero-title">Book traveller-backed things to do</h1>
+          <h1 className="hero-title">Book traveler-backed things to do</h1>
           <div className="hero-search">
             <input
               type="text"
@@ -22,132 +32,27 @@ export default function ThingsToDo() {
           </div>
         </div>
       </div>
-
-      <section className="recommendation-section">
-        <h2>Recommended Activities</h2>
-        <p>Handpicked experiences for your next adventure.</p>
+      </div>
+      <section className="recommendation-section" style={{ marginLeft: 'auto', marginRight: '0', width: '98%' }}>
         <div className="recommendation-grid">
-          
-          <div className="card">
-            <div className="card-image">
-              <img src="/images/pettah.jpg" alt="Activity 1" />
-              <button className="heart-button">♥</button>
-            </div>
-            <div className="card-content">
-              <div className="card-title">Pettah Tour</div>
-              <div className="card-location">Colombo</div>
-              <div className="card-rating">4.8 ★</div>
-              <div className="card-price">From $25</div>
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-image">
-              <img src="/images/surfing.jpg" alt="Activity 2" />
-              <button className="heart-button">♥</button>
-            </div>
-            <div className="card-content">
-              <div className="card-title">Beach Adventure</div>
-              <div className="card-location">Mirissa</div>
-              <div className="card-rating">4.7 ★</div>
-              <div className="card-price">From $30</div>
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-image">
-              <img src="/images/fort.jpg" alt="Activity 1" />
-              <button className="heart-button">♥</button>
-            </div>
-            <div className="card-content">
-              <div className="card-title">Fort Tour</div>
-              <div className="card-location">Galle</div>
-              <div className="card-rating">4.8 ★</div>
-              <div className="card-price">From $25</div>
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-image">
-              <img src="/images/sigiriya.jpg" alt="Activity 1" />
-              <button className="heart-button">♥</button>
-            </div>
-            <div className="card-content">
-              <div className="card-title">Kingdom Tour</div>
-              <div className="card-location">Sigiriya</div>
-              <div className="card-rating">4.8 ★</div>
-              <div className="card-price">From $25</div>
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-image">
-              <img src="/images/kandy.jpg" alt="Activity 1" />
-              <button className="heart-button">♥</button>
-            </div>
-            <div className="card-content">
-              <div className="card-title">  Kandy Heritage Trail </div>
-              <div className="card-location">kandy</div>
-              <div className="card-rating">4.8 ★</div>
-              <div className="card-price">From $25</div>
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-image">
-              <img src="/images/marbel.jpg" alt="Activity 1" />
-              <button className="heart-button">♥</button>
-            </div>
-            <div className="card-content">
-              <div className="card-title">Marble Bay Adventure </div>
-              <div className="card-location">Trincomalee</div>
-              <div className="card-rating">4.8 ★</div>
-              <div className="card-price">From $25</div>
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-image">
-              <img src="/images/yala.jpg" alt="Activity 1" />
-              <button className="heart-button">♥</button>
-            </div>
-            <div className="card-content">
-              <div className="card-title"> Safari Ride</div>
-              <div className="card-location">Yala</div>
-              <div className="card-rating">4.8 ★</div>
-              <div className="card-price">From $25</div>
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-image">
-              <img src="/images/anuradhapura.jpg" alt="Activity 1" />
-              <button className="heart-button">♥</button>
-            </div>
-            <div className="card-content">
-              <div className="card-title"> Anuradhapura Cycle Tour</div>
-              <div className="card-location">Anuradhapura</div>
-              <div className="card-rating">4.8 ★</div>
-              <div className="card-price">From $25</div>
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-image">
-              <img src="/images/air.jpg" alt="Activity 1" />
-              <button className="heart-button">♥</button>
-            </div>
-            <div className="card-content">
-              <div className="card-title"> Air Balloon Ride</div>
-              <div className="card-location">Dambulla</div>
-              <div className="card-rating">4.8 ★</div>
-              <div className="card-price">From $25</div>
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-image">
-              <img src="/images/ritigala.jpg" alt="Activity 1" />
-              <button className="heart-button">♥</button>
-            </div>
-            <div className="card-content">
-              <div className="card-title">Ruins of Ritigala Forest Monastey</div>
-              <div className="card-location">Anuradhapura</div>
-              <div className="card-rating">4.8 ★</div>
-              <div className="card-price">From $25</div>
-            </div>
-          </div>
+          {activities.length > 0 ? (
+            activities.map((activity, idx) => (
+              <div className="card" key={activity.id || idx}>
+                <div className="card-image">
+                  <img src={activity.imageUrl || '/images/default.jpg'} alt={activity.title} />
+                  <button className="heart-button">♥</button>
+                </div>
+                <div className="card-content">
+                  <div className="card-title">{activity.title}</div>
+                  <div className="card-location">{activity.location}</div>
+                  <div className="card-rating">{activity.rating} ★</div>
+                  <div className="card-price">From ${activity.price}</div>
+                </div>
+              </div>
+            ))
+          ) : (
+            <div>Loading activities...</div>
+          )}
         </div>
       </section>
       <div className="info-bar">

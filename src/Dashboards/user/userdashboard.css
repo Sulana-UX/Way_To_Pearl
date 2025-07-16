@@ -1,0 +1,88 @@
+/* User Dashboard Styles */
+.user-dashboard {
+  display: flex;
+  min-height: 100vh;
+  background: #f7f5f0;
+}
+
+.user-sidebar {
+  width: 240px;
+  background: #00704a;
+  color: #fff;
+  padding: 32px 18px;
+  box-shadow: 2px 0 12px rgba(0,0,0,0.07);
+}
+.user-sidebar h2 {
+  font-size: 22px;
+  margin-bottom: 28px;
+}
+.user-sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+.user-sidebar li {
+  margin-bottom: 18px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.user-sidebar li:hover {
+  color: #ffe082;
+}
+
+.user-main-content {
+  flex: 1;
+  padding: 38px 48px;
+}
+.user-topbar h1 {
+  font-size: 28px;
+  margin-bottom: 32px;
+  color: #00704a;
+}
+.user-stats {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 38px;
+}
+.user-stat-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 24px 38px;
+  min-width: 220px;
+  text-align: center;
+}
+.user-stat-card h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #00704a;
+}
+.user-stat-card p {
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+}
+.user-bookings-table h2 {
+  font-size: 22px;
+  margin-bottom: 18px;
+}
+.user-bookings-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+.user-bookings-table th, .user-bookings-table td {
+  padding: 14px 10px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+.user-bookings-table th {
+  background: #f0f0f0;
+  color: #00704a;
+}
+.user-bookings-table tr:last-child td {
+  border-bottom: none;
+}

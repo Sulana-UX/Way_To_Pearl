@@ -16,9 +16,10 @@ const Navbar = () => {
         <NavLink to="/hotels" activeClassName="active">Hotels</NavLink>
         <NavLink to="/guiders" activeClassName="active">Guiders</NavLink>
         <NavLink to="/rental-cars" activeClassName="active">Rental Cars</NavLink>
-        <button className="login-button">Log In</button>
-
-
+        <NavLink to="/admin" activeClassName="active">Admin Dashboard</NavLink>
+        <NavLink to="/login" activeClassName="active">
+          <button className="login-button">Log In</button>
+        </NavLink>
       </div>
       
      

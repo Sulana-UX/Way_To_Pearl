@@ -1,3 +1,9 @@
+.thingstodo-page {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background: #f7f7f7;
+}
+
 .hero-banner {
   width: 100%;
   height: 500px;
@@ -9,6 +15,7 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
+  margin-bottom: 40px; /* Added margin-bottom to match spacing */
 }
 
 .hero-content {
@@ -262,5 +269,18 @@
   cursor: pointer;
   font-size: 1.2rem;
   line-height: 1;
+}
+
+.recommendation-section h2 {
+  margin-bottom: 8px;
+}
+
+.recommendation-desc {
+  font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #000000;
+  margin-top: 0;
+  margin-bottom: 18px;
 }
 
