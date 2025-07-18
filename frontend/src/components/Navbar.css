@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f0f0f0;
+}
+
+* {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+
+.logo {
+  height: 90px;
+ width: 90px;
+}
+
+
+
+
+
+.search-bar {
+  flex-grow: 1;
+  margin: 0 20px;
+}
+
+.search-bar input {
+  width: 50%;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 15px;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: #003b49;
+  font-weight: bold;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 2S5px;
+}
+
+.navbar-right a {
+  text-decoration: none;
+  color: #003b49;
+  font-weight: bold;
+}
+
+.login-button {
+  padding: 8px 16px;
+  background-color: #00aa6c; /* Tripadvisor green */
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #007a50; /* Darker on hover */
+}
+
+.navbar-links a:hover{
+  color:#00aa6c;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
