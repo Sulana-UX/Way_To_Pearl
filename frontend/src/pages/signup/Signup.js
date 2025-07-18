@@ -2,24 +2,36 @@ import React, { useState } from "react";
 import "./signup.css";
 
 const SignUpPage = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
   const [role, setRole] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = {
-      username: e.target[0].value,
-      email: e.target[2].value,
-      password: e.target[1].value,
+      username,
+      password,
+      email,
       role,
     };
     try {
-      const res = await fetch("http://localhost/waytopearl/signup.php", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      const res = await fetch(
+        "http://localhost:8000/api/signup.php",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
       const data = await res.json();
-      alert(JSON.stringify(data, null, 2)); // show full backend response for debugging
+      if (data.message) {
+        alert(data.message);
+      } else if (data.sql_error) {
+        alert("Signup failed: " + data.sql_error);
+      } else {
+        alert("Signup failed. Please try again.");
+      }
     } catch (err) {
       alert("Signup failed. Please try again.");
     }
@@ -45,9 +57,27 @@ const SignUpPage = () => {
         </select>
         {role && (
           <form onSubmit={handleSubmit}>
-            <input type="text" placeholder="User Name" required />
-            <input type="password" placeholder="Password" required />
-            <input type="email" placeholder="Email" required />
+            <input
+              type="text"
+              placeholder="User Name"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
             <button type="submit">Sign Up</button>
           </form>
         )}
