@@ -3,43 +3,74 @@ import { Link, useNavigate } from "react-router-dom";
 import "./login.css";
 
 const LoginPage = () => {
-    const [usernameOrEmail, setUsernameOrEmail] = useState("");
+  const [usernameOrEmail, setUsernameOrEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate(); // for redirect
+  const [showError, setShowError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setShowError(false);
+    setErrorMessage("");
 
     try {
       const res = await fetch("http://localhost:8000/api/login.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username: usernameOrEmail, password }),
+        body: JSON.stringify({
+          username: usernameOrEmail,
+          password: password,
+        }),
       });
 
       const data = await res.json();
-      alert(data.message);
+
+      if (!res.ok) {
+        throw new Error(data.message || "Login failed");
+      }
 
       if (data.message === "Login successful") {
-        // Save user info to localStorage if needed
-        localStorage.setItem("user", JSON.stringify(data.user));
-        // Redirect to dashboard
-        navigate("/dashboard");
+        const user = data.user;
+
+        localStorage.setItem("userRole", user.role);
+        localStorage.setItem("userName", user.name);
+        localStorage.setItem("userEmail", user.email);
+
+        const profilePhoto = user.profilePhoto || null;
+
+        if (user.role && (user.role.toLowerCase() === "tuorist" || user.role.toLowerCase() === "tourist")) {
+          navigate("/tuorist-dashboard", {
+            state: {
+              name: user.name,
+              role: user.role,
+              profilePhoto: profilePhoto,
+            },
+          });
+        } else if (user.role && (user.role === "tuorist" || user.role === "tuorist")) {
+          navigate("/TuoristDashboard");
+        } else {
+          localStorage.removeItem("userRole");
+          navigate("/");
+        }
+      } else {
+        setErrorMessage(data.message || "Invalid login");
+        setShowError(true);
+        setTimeout(() => setShowError(false), 3000);
       }
     } catch (err) {
-      console.error(err);
-      alert("Something went wrong. Try again.");
+      setErrorMessage("Error: " + err.message);
+      setShowError(true);
+      setTimeout(() => setShowError(false), 3000);
     }
   };
 
   return (
     <div className="login-page">
       <div className="login-background"></div>
-
       <div className="login-container">
         <h2>Welcome Back</h2>
         <p className="subtitle">Login to continue your journey</p>
-
         <form onSubmit={handleSubmit}>
           <div className="input-group">
             <label htmlFor="usernameOrEmail">Username or Email</label>
@@ -49,7 +80,7 @@ const LoginPage = () => {
               name="usernameOrEmail"
               placeholder="Username or Email"
               value={usernameOrEmail}
-              onChange={e => setUsernameOrEmail(e.target.value)}
+              onChange={(e) => setUsernameOrEmail(e.target.value)}
               required
             />
           </div>
@@ -62,12 +93,14 @@ const LoginPage = () => {
               name="password"
               placeholder="••••••••"
               value={password}
-              onChange={e => setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               required
             />
           </div>
 
           <button type="submit">Login</button>
+
+          {showError && <div className="error-message">{errorMessage}</div>}
 
           <div className="login-links">
             <a href="#">Forgot Password?</a>
