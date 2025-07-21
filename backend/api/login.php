@@ -49,7 +49,7 @@ if (!$conn) {
 
 // Find user by name or email
 $stmt = $conn->prepare(
-    "SELECT login_id, name, email, password, role FROM user_login WHERE name = ? OR email = ?"
+    "SELECT user_id, name, email, password, role FROM user_signup WHERE name = ? OR email = ?"
 );
 if ($stmt === false) {
     echo json_encode([
@@ -85,7 +85,7 @@ if ($user['role'] === 'tuorist') {
     echo json_encode([
         "message" => "Login successful",
         "user" => [
-            "login_id" => $user['login_id'],
+            "user_id" => $user['user_id'],
             "name" => $user['name'],
             "email" => $user['email'],
             "role" => $user['role'],
@@ -96,7 +96,7 @@ if ($user['role'] === 'tuorist') {
     echo json_encode([
         "message" => "Login successful",
         "user" => [
-            "login_id" => $user['login_id'],
+            "user_id" => $user['user_id'],
             "name" => $user['name'],
             "email" => $user['email'],
             "role" => $user['role'],

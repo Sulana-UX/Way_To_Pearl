@@ -5,7 +5,7 @@ function UsersList() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:8000/api/getData.php')
+    axios.get('http://localhost/Way_To_Pearl/backend/api/getData.php')
       .then(response => {
         setUsers(response.data);
       })

@@ -8,10 +8,11 @@ import Guiders from './pages/guiders/Guiders';
 import RentalCars from './pages/rental_cars/RentalCars';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Admin from './pages/admin/Admin';
+import Admin from './Dashboards/admin/Admin';
 import Login from './pages/login/Login';
 import Signup from './pages/signup/Signup';
 import TuoristDashboard from './Dashboards/TuoristDashboard';
+import Review from './pages/review/Review';
 
 
 function AppContent() {
@@ -30,6 +31,7 @@ function AppContent() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/tuorist-dashboard" element={<TuoristDashboard />} />
+        <Route path="/review" element={<Review />} />
       </Routes>
       <Footer/>
     </div>

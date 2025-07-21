@@ -1,0 +1,120 @@
+/* Container & heading styles */
+.review-search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #f1f1f1;
+  min-height: 100vh;
+}
+
+.review-search-container h1 {
+  font-size: 2.5rem;
+  color: #003b2f;
+  margin-bottom: 10px;
+}
+
+.review-search-container p {
+  font-size: 1.1rem;
+  color: #333;
+  max-width: 600px;
+  margin-bottom: 30px;
+}
+
+/* Flex row for card + write area */
+.review-flex-row {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Why review card styles */
+
+.why-review-card {
+  position: relative;
+  width: 80%;
+  max-width: 600px;
+  min-width: 300px;
+  height: auto;
+  min-height: 180px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.why-review-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 30px;
+  color: #fff;
+  text-align: left;
+}
+
+.why-review-overlay h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.why-review-overlay p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+/* Review writing area styles */
+.review-write-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  max-width: 600px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 32px 24px;
+}
+
+.review-textarea {
+  width: 100%;
+  min-height: 180px;
+  font-size: 1.1rem;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 16px;
+  resize: vertical;
+  margin-bottom: 18px;
+  background: #f9f9f9;
+  color: #222;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.review-textarea:focus {
+  border-color: #009688;
+}
+
+.save-review-btn {
+  background: linear-gradient(90deg, #009688 0%, #00bfae 100%);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 36px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.2s, transform 0.1s;
+}
+.save-review-btn:hover {
+  background: linear-gradient(90deg, #00796b 0%, #009688 100%);
+  transform: translateY(-2px) scale(1.03);
+}

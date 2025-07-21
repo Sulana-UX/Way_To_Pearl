@@ -1,12 +1,14 @@
 <?php
-// Show PHP errors for debugging
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// CORS HEADERS - must be at the very top, before any output
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: Content-Type");
 header("Access-Control-Allow-Methods: POST, OPTIONS");
 header("Content-Type: application/json");
+
+// Show PHP errors for debugging
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 // Handle preflight (CORS)
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -67,7 +69,7 @@ $debugPassword = [
 ];
 
 // Check for duplicate email
-$checkStmt = $conn->prepare("SELECT login_id FROM user_login WHERE email = ?");
+$checkStmt = $conn->prepare("SELECT user_id FROM user_signup WHERE email = ?");
 if ($checkStmt === false) {
     echo json_encode([
         "message" => "Prepare failed (duplicate email check)",
@@ -91,7 +93,7 @@ if ($checkStmt->num_rows > 0) {
 $checkStmt->close();
 
 // Prepare and execute insert
-$stmt = $conn->prepare("INSERT INTO user_login (name, password, email, role) VALUES (?, ?, ?, ?)");
+$stmt = $conn->prepare("INSERT INTO user_signup (name, password, email, role) VALUES (?, ?, ?, ?)");
 if ($stmt === false) {
     echo json_encode([
         "message" => "Prepare failed (insert)",

@@ -15,7 +15,7 @@ const LoginPage = () => {
     setErrorMessage("");
 
     try {
-      const res = await fetch("http://localhost:8000/api/login.php", {
+      const res = await fetch("http://localhost/Way_To_Pearl/backend/api/login.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -36,6 +36,14 @@ const LoginPage = () => {
         localStorage.setItem("userRole", user.role);
         localStorage.setItem("userName", user.name);
         localStorage.setItem("userEmail", user.email);
+        // Store user_id as string, fallback to data.user_id if user.user_id is undefined
+        const uid = user.user_id || data.user_id;
+        if (uid) {
+          localStorage.setItem("user_id", String(uid));
+        } else {
+          // fallback: remove any old user_id
+          localStorage.removeItem("user_id");
+        }
 
         const profilePhoto = user.profilePhoto || null;
 

@@ -17,7 +17,7 @@ const SignUpPage = () => {
     };
     try {
       const res = await fetch(
-        "http://localhost:8000/api/signup.php",
+        "http://localhost/Way_To_Pearl/backend/api/signup.php",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

@@ -4,7 +4,7 @@ header("Content-Type: application/json");
 
 require_once "../config/db.php";  // Import the connection
 
-$sql = "SELECT * FROM user_login";  // Example table name 'users'
+$sql = "SELECT * FROM user_signup";  // Example table name 'users'
 $result = $conn->query($sql);
 
 $data = [];

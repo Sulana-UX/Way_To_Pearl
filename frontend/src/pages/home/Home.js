@@ -4,10 +4,12 @@ import PromoBox from "../../components/PromoBox";
 import Footer from "../../components/Footer";
 import "./home.css";
 
+
 export default function Home() {
   return (
     <div>
       <PromoBox />
+      
       <div className="home-hero">
         <div className="home-hero-left">
          
